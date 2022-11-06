@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { updateQuery } from "../redux/people/actions";
 
-function Filter(props) {
+export default function Filter() {
   const dispatch = useDispatch();
 
   const handleSearchValueChange = (e) => {
@@ -19,9 +19,3 @@ function Filter(props) {
     </div>
   );
 }
-
-Filter.propTypes = {
-  // ...
-};
-
-export default Filter;

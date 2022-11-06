@@ -35,3 +35,4 @@ const handleKeyUpAction = (e) => {
 };
 
 inputElement.addEventListener("keyup", (e) => handleKeyUpAction(e));
+inputElement.addEventListener("focusout", (e) => changeInputToText(e));

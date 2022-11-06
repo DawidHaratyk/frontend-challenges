@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { getPeople, getQuery } from "../redux/people/selectors";
 
-function People(props) {
+export default function People() {
   const people = getPeople();
   const query = getQuery();
 
-  const searchedPeople = useMemo(() =>
+  let searchedPeople = useMemo(() =>
     people.map(({ name, id }) => {
       if (name.toLowerCase().includes(query.toLowerCase()))
         return (
@@ -16,12 +16,13 @@ function People(props) {
     })
   );
 
-  return <div>{searchedPeople}</div>;
+  searchedPeople = searchedPeople.filter((person) => person !== undefined);
+
+  return (
+    <div>
+      {searchedPeople.length
+        ? searchedPeople
+        : "There are no matching people to this search query"}
+    </div>
+  );
 }
-
-// make a research how use propTypes here properly
-People.propTypes = {
-  // ...
-};
-
-export default People;

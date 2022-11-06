@@ -21,7 +21,7 @@ const Three = ({ children }) => (
   </div>
 );
 
-const components = [One, Two, Three];
+const components = [One, Two, Three, One, Two, Two];
 
 function Recursion() {
   const seconds = useTimer();

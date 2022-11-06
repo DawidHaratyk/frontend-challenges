@@ -1,12 +1,9 @@
-import './App.css';
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
-import { PostsList } from './components/PostsList/PostsList';
-import { PostsForm } from './components/PostsForm/PostsForm';
+import "./App.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { PostsList } from "./components/PostsList/PostsList";
+import { PostsForm } from "./components/PostsForm/PostsForm";
 
-export const queryClient = new QueryClient()
+export const queryClient = new QueryClient();
 
 function App() {
   return (

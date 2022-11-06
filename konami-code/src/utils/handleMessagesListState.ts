@@ -1,19 +1,20 @@
-import { Dispatch } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { MessageProps } from "../types/api";
 import { getSecretMessages } from "./getSecretMessages";
 
 export const handleMessagesListState = async (
-  setMessagesList: Dispatch<React.SetStateAction<MessageProps[]>>,
-  setSearchValue: Dispatch<React.SetStateAction<string>>
+  setMessagesList: Dispatch<SetStateAction<MessageProps[]>>,
+  setSearchValue: Dispatch<SetStateAction<string>>
 ) => {
   const secretMessagesList = await getSecretMessages();
 
   const sortedMessagesByDate = secretMessagesList.sort(
-    (currentMessage: MessageProps, nextMessage: MessageProps) => {
+    (currentMessage, nextMessage) => {
       return Number(currentMessage.created_at) - Number(nextMessage.created_at);
     }
   );
 
+  // array of 5 newest messages
   const newestMessages = sortedMessagesByDate.slice(0, 5);
 
   setMessagesList(newestMessages);

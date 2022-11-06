@@ -19,9 +19,9 @@ const handleChangeTextColor = (e) => {
   e.target.style.color = "green";
 };
 
-for (let i = 0; i < colorsList.length; i++) {
+for (const color of colorsList) {
   const liElement = document.createElement("li");
-  liElement.textContent = colorsList[i];
+  liElement.textContent = color;
   colorsContainer.append(liElement);
 
   liElement.addEventListener("click", (e) => handleChangeTextColor(e));
@@ -32,7 +32,11 @@ const handleInputValueChange = (e) => {
   const liElements = Array.from(document.querySelectorAll("li"));
 
   const filteredColors = liElements.filter((liElement) => {
-    if (liElement.textContent.toLowerCase().includes(currentQuery)) {
+    const doesElementIncludeCurrentQuery = liElement.textContent
+      .toLowerCase()
+      .includes(currentQuery);
+
+    if (doesElementIncludeCurrentQuery) {
       liElement.style.display = "list-item";
       return liElement;
     } else {
@@ -42,7 +46,7 @@ const handleInputValueChange = (e) => {
 
   document.title = filteredColors.length
     ? filteredColors[0].textContent
-    : "There is no matching color :|";
+    : "No matching color :|";
 };
 
 const handleClearInputValue = () => {

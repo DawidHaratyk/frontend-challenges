@@ -25,6 +25,7 @@ export function Input({ setMessagesList }: InputProps) {
     }
 
     const inputTimeout = setTimeout(() => {
+      // if user is not typing for 5 seconds, the search value will be empty
       if (searchValue === searchValueFiveSecondsAgo) {
         setSearchValue("");
       }

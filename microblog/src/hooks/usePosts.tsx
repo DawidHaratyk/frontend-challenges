@@ -1,42 +1,39 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { addPost, removePost } from "../api/postsApi";
+import { addPost, removePost, updatePostsId } from "../api/postsApi";
 import { queryClient } from "../App";
-
-export interface ArticleI {
-  title: string;
-  description: string;
-  author: string;
-  id: number;
-}
-
-const getArticles = async (url: string): Promise<ArticleI[]> => {
-  const response = await fetch(url);
-  const articles: Promise<ArticleI[]> = await response.json();
-  return articles;
-};
+import { getPosts } from "../utils/getPosts";
 
 export const usePosts = () => {
-  const { data, isLoading, isError } = useQuery(["articles"], () =>
-    getArticles("http://localhost:8080/articles")
+  const { data, isLoading, isError } = useQuery(["posts"], () =>
+    getPosts("http://localhost:8080/posts")
   );
+
+  const posts = data ?? [];
 
   const addPostMutation = useMutation(addPost, {
     onSuccess: () => {
-      queryClient.invalidateQueries(["articles"]);
+      queryClient.invalidateQueries(["posts"]);
     },
   });
 
   const removePostMutation = useMutation(removePost, {
     onSuccess: () => {
-      queryClient.invalidateQueries(["articles"]);
+      queryClient.invalidateQueries(["posts"]);
+    },
+  });
+
+  const updatePostsIdMutation = useMutation(updatePostsId, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["posts"]);
     },
   });
 
   return {
-    data,
+    posts,
     isLoading,
     isError,
     addPostMutation,
     removePostMutation,
+    updatePostsIdMutation,
   };
 };

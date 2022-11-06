@@ -1,16 +1,10 @@
 {
-  "articles": [
+  "posts": [
     {
-      "title": "title 2",
-      "description": "fcwdfs",
-      "author": "wfce",
-      "id": 2
-    },
-    {
-      "title": "fwe",
-      "description": "fweds",
-      "author": "fwe",
-      "id": 5
+      "title": "ferwfer",
+      "description": "ffer",
+      "author": "ferw",
+      "id": 4
     }
   ]
 }

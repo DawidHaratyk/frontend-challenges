@@ -37,8 +37,13 @@ code {
 
 .form-input {
   margin-bottom: 6px;
+  margin-left: 8px;
 }
 
 .add-post-btn {
   margin-top: 12px;
+}
+
+.posts-number {
+  text-align: center;
 }
