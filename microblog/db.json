@@ -1,28 +1,16 @@
 {
   "articles": [
     {
-      "title": "title 1",
-      "description": "description 1",
-      "author": "Janek",
-      "id": 1
-    },
-    {
       "title": "title 2",
       "description": "fcwdfs",
       "author": "wfce",
       "id": 2
     },
     {
-      "title": "title 3",
-      "description": "fcwdfs",
-      "author": "wfce",
-      "id": 3
-    },
-    {
-      "title": "fsd",
-      "description": "fs",
-      "author": "fsd",
-      "id": 4
+      "title": "fwe",
+      "description": "fweds",
+      "author": "fwe",
+      "id": 5
     }
   ]
 }

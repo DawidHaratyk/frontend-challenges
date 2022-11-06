@@ -12,9 +12,9 @@ export function PostsForm() {
 
   const handleAddNewPost = () => {
     const { title, description, author } = formInputs;
+
     if (title && description && author && data?.length) {
       // fix problem when array of posts is empty (it's because we put data?.length in condition)
-      console.log(data[data.length - 1].id);
 
       addPostMutation.mutate({
         ...formInputs,
@@ -22,6 +22,12 @@ export function PostsForm() {
       });
 
       alert("Post was added");
+
+      setFormInputs({
+        title: "",
+        description: "",
+        author: "",
+      });
     } else {
       alert("Fill all inputs, please");
     }
@@ -69,7 +75,9 @@ export function PostsForm() {
           onChange={(e) => handleFormStateChange(e, "author")}
         />
       </label>
-      <button onClick={handleAddNewPost}>Add a new post</button>
+      <button onClick={handleAddNewPost} className="add-post-btn">
+        Add a new post
+      </button>
     </div>
   );
 }
