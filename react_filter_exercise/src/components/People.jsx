@@ -1,6 +1,10 @@
 import React, { useMemo } from "react";
 import { getPeople, getQuery } from "../redux/people/selectors";
 
+function notEmpty(value) {
+  return value !== null && value !== undefined;
+}
+
 export default function People() {
   const people = getPeople();
   const query = getQuery();
@@ -16,7 +20,7 @@ export default function People() {
     })
   );
 
-  searchedPeople = searchedPeople.filter((person) => person !== undefined);
+  searchedPeople = searchedPeople.filter((person) => notEmpty(person));
 
   return (
     <div>
