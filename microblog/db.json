@@ -1,10 +1,22 @@
 {
   "posts": [
     {
-      "title": "ferwfer",
-      "description": "ffer",
-      "author": "ferw",
-      "id": 4
+      "title": "First title",
+      "description": "First description",
+      "author": "Jakob",
+      "id": 1
+    },
+    {
+      "title": "Second title",
+      "description": "Second description",
+      "author": "Anna",
+      "id": 2
+    },
+    {
+      "title": "Third title",
+      "description": "Third description",
+      "author": "Philip",
+      "id": 3
     }
   ]
 }
